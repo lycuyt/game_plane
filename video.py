@@ -48,21 +48,21 @@ class VideoShow:
     def stop(self):
         self.stopped = True   
 
-def threadshow(source=0):
+# def threadshow(source=0):
 
-    video_getter = VideoGet(source).start()
-    video_shower = VideoShow(video_getter.frame).start()
+#     video_getter = VideoGet(source).start()
+#     video_shower = VideoShow(video_getter.frame).start()
   
 
-    while True:
-        if video_getter.stopped or video_shower.stopped:
-            video_shower.stop()
-            video_getter.stop()
-            break
+#     while True:
+#         if video_getter.stopped or video_shower.stopped:
+#             video_shower.stop()
+#             video_getter.stop()
+#             break
 
-        frame = video_getter.frame
+#         frame = video_getter.frame
         
-        video_shower.frame = frame
+#         video_shower.frame = frame
        
 class threadVideo:
     def __init__(self):
