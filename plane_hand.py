@@ -1,8 +1,8 @@
 import pygame
 from video import threadVideo
-# xyz = threadVideo()
-# xyz.start()
-class Plane(pygame.sprite.Sprite):
+
+
+class Plane_hand(pygame.sprite.Sprite):
     def __init__(self, x, y):
         pygame.sprite.Sprite.__init__(self)
         self.images =[]
@@ -20,6 +20,9 @@ class Plane(pygame.sprite.Sprite):
         self.game_over = False
         self.sound = pygame.mixer.Sound('sound/sfx_wing.wav')
 
+        self.xyz = threadVideo()
+        self.xyz.start()
+
     def update(self):
         if self.flying == True:
             #gravity
@@ -27,23 +30,18 @@ class Plane(pygame.sprite.Sprite):
             if self.vel>8:
                 self.vel =8
 
-            if self.rect.bottom < 600:
+            if self.rect.bottom < 400:
                 self.rect.y += int(self.vel)
 
         #jump
         if self.game_over == False:
-            if pygame.mouse.get_pressed()[0] == 1 and self.clicked == False:
-                self.sound.play()
+            
+
+            if self.xyz.dist < 0.1 and self.clicked == False:
                 self.clicked = True
                 self.vel = -3
-            if pygame.mouse.get_pressed()[0] == 0:
+            if self.xyz.dist>=0.1:
                 self.clicked = False
-
-            # if xyz.dist < 0.1 and self.clicked == False:
-            #     self.clicked = True
-            #     self.vel = -3
-            # if xyz.dist>=0.1:
-            #     self.clicked = False
             #handle animation
             self.couter += 1
             flap_cooldown =5

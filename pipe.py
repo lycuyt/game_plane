@@ -4,10 +4,10 @@ p_gap = 300
 groune_speed = 3
 #xclass
 class Pipe(pygame.sprite.Sprite):
-    def __init__(self, x, y, position):
+    def __init__(self, x, y,path, position):
 
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load(r'images\pipe2.png')
+        self.image = pygame.image.load(path)
         self.rect = self.image.get_rect()
         self.pipe_gap = p_gap
         # position = 1 from the top , = -1 from the bottom
