@@ -30,7 +30,7 @@ class Plane_hand(pygame.sprite.Sprite):
             if self.vel>8:
                 self.vel =8
 
-            if self.rect.bottom < 400:
+            if self.rect.bottom < 600:
                 self.rect.y += int(self.vel)
 
         #jump
@@ -38,6 +38,7 @@ class Plane_hand(pygame.sprite.Sprite):
             
 
             if self.xyz.dist < 0.1 and self.clicked == False:
+                self.sound.play()
                 self.clicked = True
                 self.vel = -3
             if self.xyz.dist>=0.1:

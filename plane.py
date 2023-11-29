@@ -23,7 +23,7 @@ class Plane(pygame.sprite.Sprite):
     def update(self):
         if self.flying == True:
             #gravity
-            self.vel += 0.1
+            self.vel += 0.15
             if self.vel>8:
                 self.vel =8
 
@@ -35,7 +35,7 @@ class Plane(pygame.sprite.Sprite):
             if pygame.mouse.get_pressed()[0] == 1 and self.clicked == False:
                 self.sound.play()
                 self.clicked = True
-                self.vel = -3
+                self.vel = -4
             if pygame.mouse.get_pressed()[0] == 0:
                 self.clicked = False
 
@@ -44,6 +44,7 @@ class Plane(pygame.sprite.Sprite):
             #     self.vel = -3
             # if xyz.dist>=0.1:
             #     self.clicked = False
+            
             #handle animation
             self.couter += 1
             flap_cooldown =5

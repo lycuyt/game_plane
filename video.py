@@ -28,9 +28,6 @@ class VideoGet:
         self.stopped = True 
 
 class VideoShow:
-    """
-    Class that continuously shows a frame using a dedicated thread.
-    """
 
     def __init__(self, frame=None):
         self.frame = frame
