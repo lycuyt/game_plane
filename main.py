@@ -11,14 +11,13 @@ import random
 pygame.init()
 clock = pygame.time.Clock()
 
-
 # define game variable
-
 WIDTH = 864
 HEIGHT = 600
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('Helicopter')
 high_score = 0 
+
 #define front
 game_font =pygame.font.Font(r'04B_19.TTF', 20)
 
@@ -30,10 +29,10 @@ yellow =(255, 255, 0)
 
 
 #load image 
-bg = pygame.image.load('images/bg2.png')
+bg = pygame.image.load('images/bg22.png')
 path = 'images/pipe3.png'
 # menu
-bg_menu = pygame.image.load('images/bg_nen.png')
+bg_menu = pygame.image.load('images/bg_menu.png')
 #load img button 
 play_img = pygame.image.load('images/play.png')
 settings_img = pygame.image.load('images/settings.png')
@@ -129,7 +128,7 @@ def settings():
                 sys.exit()
 
         if light_button.draw(screen):
-            bg = pygame.image.load(r'images\bg2.png')
+            bg = pygame.image.load(r'images\bg22.png')
             path ='images/pipe3.png'
 
         if hand_button.draw(screen):
@@ -139,7 +138,7 @@ def settings():
 
 
         if dark_button.draw(screen):
-            bg = pygame.image.load(r'images\bg1.png') 
+            bg = pygame.image.load(r'images\bg11.png') 
             path ='images/pipe1.png'
             
         if mouse_button.draw(screen):
@@ -236,6 +235,7 @@ def main_loop():
         #check gameover and restart
         if pla.game_over == True:
             draw_text("HIGH_SCORE "+ str(high_score), game_font, yellow, WIDTH//2 - 70 , 10)
+            # ghi file
             with open('score.txt', 'w') as file:
                 file.write(str(high_score))
             pipe_group.empty()

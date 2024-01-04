@@ -89,7 +89,7 @@ class threadVideo:
                 image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
                 results = hands.process(image)
 
-                # Draw the hand annotations on the image.
+                #draw the hand annotations on the image.
                 image.flags.writeable = True
                 image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
                 dist= 0
@@ -108,6 +108,7 @@ class threadVideo:
                             mp_drawing_styles.get_default_hand_connections_style())
                 self.video_shower.frame = image
                 self.dist = dist   
+
+
 if __name__ == '__main__':   
     threadVideo().start()
-    # threadshow()
